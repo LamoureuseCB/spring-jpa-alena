@@ -1,6 +1,9 @@
 package org.example.springjpaalena.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.example.springjpaalena.dto.CategoryFullDto;
+import org.example.springjpaalena.dto.CategoryMapper;
+import org.example.springjpaalena.dto.CategoryShortDto;
 import org.example.springjpaalena.repository.CategoryRepository;
 import org.example.springjpaalena.model.Category;
 import org.springframework.web.bind.annotation.*;
@@ -12,14 +15,17 @@ import java.util.List;
 @RequestMapping("/categories")
 public class CategoryController {
     private final CategoryRepository categoryRepository;
+    private final CategoryMapper categoryMapper;
 
     @GetMapping
-    public List<Category> findAll(){
-        return categoryRepository.findAll();
+    public List<CategoryShortDto> findAll(){
+
+        return categoryMapper.toDto(categoryRepository.findAll());
     }
     @GetMapping("/{id}")
-    public Category findById(@PathVariable int id){
-        return categoryRepository.findById(id).orElseThrow();
+    public CategoryFullDto findById(@PathVariable int id){
+        Category category = categoryRepository.findById(id).orElseThrow();
+        return categoryMapper.toDtoFull(category);
     }
     @PostMapping
     public Category create(@RequestBody Category category){
