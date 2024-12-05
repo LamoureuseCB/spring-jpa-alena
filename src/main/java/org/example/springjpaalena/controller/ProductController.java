@@ -18,11 +18,11 @@ public class ProductController {
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
 
-//    @GetMapping
-//
-//    public List<Product> findAll() {
-//        return productRepository.findAll();
-//    }
+    @GetMapping
+
+    public List<Product> findAll() {
+        return productRepository.findAll();
+    }
 //
 //    @PostMapping("/{categoryId}")
 //    public Product create(@RequestBody Product product,
@@ -38,10 +38,14 @@ public class ProductController {
         return productRepository.findAllByPriceBetween(from, to);
     }
 
-    @GetMapping("/{name}")
-    public List<Product> findAllByNameContainingIgnoreCaseOrderByPriceDesc(@PathVariable String name) {
-       return productRepository.findAllByNameContainingIgnoreCaseOrderByPriceDesc(name);
-
+//    @GetMapping("/{name}")
+//    public List<Product> findAllByNameContainingIgnoreCaseOrderByPriceDesc(@PathVariable String name) {
+//       return productRepository.findAllByNameContainingIgnoreCaseOrderByPriceDesc(name);
+//
+//    }
+    @GetMapping("/{id}")
+    public Product findById(@PathVariable int id){
+        return productRepository.findById(id);
     }
 }
 

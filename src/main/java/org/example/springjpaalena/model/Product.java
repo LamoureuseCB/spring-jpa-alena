@@ -26,7 +26,7 @@ public class Product {
     @JoinColumn(name = "category_id")
     private Category category;
     @OneToMany(mappedBy = "product")
-
+    @JsonIgnore
     private List<Value> valueList;
 
     @OneToMany(mappedBy = "product")
@@ -35,8 +35,7 @@ public class Product {
 
     @OneToMany(mappedBy = "product")
     @JsonIgnore
-    private List<Review>reviewList;
-
+    private List<Review> reviewList;
 
 
 }
