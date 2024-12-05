@@ -12,5 +12,4 @@ public class CategoryFullDto {
     private int id;
     private String name;
     private List<ProductDto> products;
-
 }
