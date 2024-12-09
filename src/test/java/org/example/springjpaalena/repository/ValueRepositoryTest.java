@@ -1,13 +1,9 @@
-package org.example.springjpaalena;
+package org.example.springjpaalena.repository;
 
 import org.example.springjpaalena.model.Category;
 import org.example.springjpaalena.model.Option;
 import org.example.springjpaalena.model.Product;
 import org.example.springjpaalena.model.Value;
-import org.example.springjpaalena.repository.CategoryRepository;
-import org.example.springjpaalena.repository.OptionRepository;
-import org.example.springjpaalena.repository.ProductRepository;
-import org.example.springjpaalena.repository.ValueRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

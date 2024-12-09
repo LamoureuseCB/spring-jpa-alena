@@ -1,10 +1,7 @@
-package org.example.springjpaalena;
+package org.example.springjpaalena.repository;
 
-import lombok.RequiredArgsConstructor;
 import org.example.springjpaalena.model.Category;
 import org.example.springjpaalena.model.Product;
-import org.example.springjpaalena.repository.CategoryRepository;
-import org.example.springjpaalena.repository.ProductRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

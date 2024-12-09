@@ -3,12 +3,8 @@ package org.example.springjpaalena.service;
 import lombok.RequiredArgsConstructor;
 import org.example.springjpaalena.model.Category;
 import org.example.springjpaalena.model.Product;
-import org.example.springjpaalena.model.Value;
 import org.example.springjpaalena.repository.CategoryRepository;
 import org.example.springjpaalena.repository.ProductRepository;
-import org.example.springjpaalena.repository.ValueRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
