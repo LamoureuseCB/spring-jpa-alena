@@ -8,5 +8,4 @@ import java.util.List;
 
 public interface ValueRepository extends JpaRepository<Value,Integer > {
     List<Value> findAllByAndProduct(Product product);
-
 }

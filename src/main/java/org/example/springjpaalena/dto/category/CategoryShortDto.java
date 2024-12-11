@@ -1,17 +1,12 @@
-package org.example.springjpaalena.dto;
-
-
+package org.example.springjpaalena.dto.category;
 
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
-public class ProductDto {
-
+public class CategoryShortDto {
     private int id;
     private String name;
-    private double price;
-
 
 }

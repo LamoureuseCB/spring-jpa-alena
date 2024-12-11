@@ -15,7 +15,18 @@ public class ErrorHandler {
 
     @ExceptionHandler(InvalidSizeException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ErrorResponse inavalidSizeHandle(final InvalidSizeException e){
+    public ErrorResponse invalidSizeHandle(final InvalidSizeException e){
         return new ErrorResponse("Ошибка!Размер должен быть положительным" ,e.getMessage());
     }
+    @ExceptionHandler(CategoryNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ErrorResponse categoryNotFoundHandle(final CategoryNotFoundException e){
+        return new ErrorResponse("Категория не найдена" ,e.getMessage());
+    }
+    @ExceptionHandler(OptionNotFound.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ErrorResponse optionNotFoundHandle(final OptionNotFound e){
+        return new ErrorResponse("Характеристика товара не найдена", e.getMessage());
+    }
+
 }

@@ -1,3 +1,14 @@
+//    @Test
+//    @SneakyThrows
+//    void findById_shouldReturnCategory_whenCorrectIdGiven() {
+//        int categoryId = 1;
+//        RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/categories/" + categoryId);
+//        ResultActions result = mockMvc.perform(requestBuilder);
+//        result.andExpect(MockMvcResultMatchers.jsonPath("$").isMap())
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.name").exists())
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("Процессоры"));
+//    }
+
 package org.example.springjpaalena.model;//package model;
 //
 //import jakarta.persistence.EntityManager;

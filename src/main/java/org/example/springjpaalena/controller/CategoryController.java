@@ -1,11 +1,13 @@
 package org.example.springjpaalena.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.example.springjpaalena.dto.CategoryFullDto;
-import org.example.springjpaalena.dto.CategoryMapper;
-import org.example.springjpaalena.dto.CategoryShortDto;
-import org.example.springjpaalena.repository.CategoryRepository;
+import org.example.springjpaalena.dto.category.CategoryCreateDto;
+import org.example.springjpaalena.dto.category.CategoryFullDto;
+import org.example.springjpaalena.dto.category.CategoryWithOptionsResponseDto;
+import org.example.springjpaalena.mapper.CategoryMapper;
+import org.example.springjpaalena.dto.category.CategoryShortDto;
 import org.example.springjpaalena.model.Category;
+import org.example.springjpaalena.service.CategoryService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,21 +16,23 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/categories")
 public class CategoryController {
-    private final CategoryRepository categoryRepository;
+
+    private final CategoryService categoryService;
     private final CategoryMapper categoryMapper;
 
     @GetMapping
-    public List<CategoryShortDto> findAll(){
-
-        return categoryMapper.toDto(categoryRepository.findAll());
+    public List<CategoryShortDto> findAll() {
+        return categoryMapper.toDto(categoryService.findAll());
     }
+
     @GetMapping("/{id}")
-    public CategoryFullDto findById(@PathVariable int id){
-        Category category = categoryRepository.findById(id).orElseThrow();
+    public CategoryFullDto findById(@PathVariable int id) {
+        Category category = categoryService.findById(id);
         return categoryMapper.toDtoFull(category);
     }
+
     @PostMapping
-    public Category create(@RequestBody Category category){
-        return  categoryRepository.save(category);
+    public CategoryWithOptionsResponseDto create(@RequestBody CategoryCreateDto categoryCreateDto) {
+        return categoryService.create(categoryCreateDto);
     }
 }

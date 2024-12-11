@@ -1,3 +1,4 @@
+create database postgres;
 create table if not exists categories
 (
     id   serial

@@ -3,7 +3,9 @@ package org.example.springjpaalena;
 import org.example.springjpaalena.model.Category;
 import org.example.springjpaalena.model.Product;
 import org.example.springjpaalena.repository.CategoryRepository;
+import org.example.springjpaalena.repository.OptionRepository;
 import org.example.springjpaalena.repository.ProductRepository;
+import org.example.springjpaalena.repository.ValueRepository;
 import org.example.springjpaalena.service.ProductService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -23,7 +25,9 @@ public class ProductServiceTest {
         product.setName("Хлеб");
         CategoryRepository categoryRepository = Mockito.mock(CategoryRepository.class);
         ProductRepository productRepository = Mockito.mock(ProductRepository.class);
-        ProductService productService = new ProductService(categoryRepository, productRepository);
+        OptionRepository optionRepository = Mockito.mock(OptionRepository.class);
+        ValueRepository valueRepository = Mockito.mock(ValueRepository.class);
+        ProductService productService = new ProductService(categoryRepository, productRepository,optionRepository,valueRepository);
         int categoryId = category.getId();
         Mockito.when(categoryRepository.findById(categoryId))
                 .thenReturn(Optional.of(category));
@@ -39,7 +43,9 @@ public class ProductServiceTest {
         product.setName("Хлеб");
         CategoryRepository categoryRepository = Mockito.mock(CategoryRepository.class);
         ProductRepository productRepository = Mockito.mock(ProductRepository.class);
-        ProductService productService = new ProductService(categoryRepository, productRepository);
+        OptionRepository optionRepository = Mockito.mock(OptionRepository.class);
+        ValueRepository valueRepository = Mockito.mock(ValueRepository.class);
+        ProductService productService = new ProductService(categoryRepository, productRepository,optionRepository,valueRepository);
         Mockito.when(categoryRepository.findById(Mockito.anyInt()))
                 .thenReturn(Optional.empty());
         Executable executable = () -> productService.create(product,0);

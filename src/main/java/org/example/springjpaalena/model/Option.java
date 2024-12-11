@@ -8,7 +8,6 @@ import java.util.List;
 
 @Getter
 @Setter
-
 @Entity
 @Table(name = "options")
 public class Option {
@@ -20,7 +19,5 @@ public class Option {
     @JoinColumn(name = "category_id")
     private Category category;
     @OneToMany(mappedBy = "option")
-
     private List<Value> valueList;
-
 }
